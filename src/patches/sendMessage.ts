@@ -30,7 +30,7 @@ export default function patchSendMessage() {
 					const match = content.match(pattern);
 					//if there is a match, and replace string contains $1, replace $1 with match, then replace content with new string
 					if (match && rule.replace.includes("$1")) {
-						content = content.replace(pattern ,rule.replace.replace("$1", match[0]));
+						content = content.replace(pattern ,rule.replace.replace("\\$1", match[0]));
 					} else {
 						//if there is no match, or replace string does not contain $1, just replace content with new string
 						content = content.replace(pattern, rule.replace);

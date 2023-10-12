@@ -1,12 +1,22 @@
-import { logger } from "@vendetta";
-import Settings from "./Settings";
+import { storage } from "@vendetta/plugin";
+import patchMessageLongPressActionSheet from "./patches/MessageLongPressActionSheet";
+import patchSendMessage from "./patches/sendMessage";
+import Settings from "./ui/pages/Settings";
+
+let patches;
 
 export default {
     onLoad: () => {
-        logger.log("Hello world!");
+        storage.rules ??= [];
+        patches = [
+            patchSendMessage(),
+            patchMessageLongPressActionSheet()
+        ];
     },
     onUnload: () => {
-        logger.log("Goodbye, world.");
+        for (const unpatch of patches) {
+            unpatch();
+        };
     },
     settings: Settings,
 }

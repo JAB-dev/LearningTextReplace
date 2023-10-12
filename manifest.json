@@ -1,14 +1,14 @@
 {
-    "name": "Template Plugin",
-    "description": "A plugin for use as a template.",
+    "name": "Text Replace",
+    "description": "Generic text replacement plugin",
     "authors": [
         {
-            "name": "You!",
-            "id": "YOUR_ID_HERE"
+            "name": "Fiery",
+            "id": "890228870559698955"
         }
     ],
     "main": "src/index.ts",
     "vendetta": {
-        "icon": "ic_badge_staff"
+        "icon": "ic_message_edit"
     }
 }
